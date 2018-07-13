@@ -33,7 +33,10 @@ class App extends Component {
     .catch(err => {console.log(err)})
   }
 
-  //asnyc/await 는 비동기 코드를 작성하는 새로운 방법
+  // asnyc/await 는 비동기 코드를 작성하는 새로운 방법 -> 비동기 코드를 동기식으로 표현해서 간단하게 만드는 거
+  
+  // 몇 가지 주의할 점이 있다면 await 뒷부분이 반드시 promise를 반환해야 한다는 것과 
+  // async function 자체도 promise를 반환한다는 것
   _getMovies = async () => {
     const movies = await this._callApi();
     console.log(movies);
