@@ -39,17 +39,21 @@ class App extends Component {
   // async function 자체도 promise를 반환한다는 것
   _getMovies = async () => {
     const movies = await this._callApi();
-    console.log(movies);
     this.setState({
       movies
     })
   }
 
   _renderMovies = () => {
-    const movies = this.state.movies.map(movie => {
-      return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id} />
-
-    })
+    console.log('call _renderMovies()')
+    const movies = this.state.movies.map(movie => 
+       <Movie 
+          title={movie.title} 
+          poster={movie.large_cover_image} 
+          synopsis={movie.synopsis} 
+          genres={movie.genres}
+          key={movie.id} />
+        )
     return movies;
   }
 
